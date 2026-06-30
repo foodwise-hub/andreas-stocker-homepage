@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andreas Stocker — Social &amp; Human Services Professional</title>
+<meta name="description" content="Andreas Stocker — Social and Human Services professional working in accreditation and quality improvement, who also builds games and tools with AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F1EEE4;
+    --paper-card:#FBFAF5;
+    --ink:#202821;
+    --ink-soft:#5B6359;
+    --teal:#2F6F62;
+    --teal-deep:#1F4E45;
+    --amber:#D98C3A;
+    --rust:#B5563C;
+    --slate:#4C6A8A;
+    --line:#D9D3C2;
+    --line-soft:#E7E2D4;
+    --radius:4px;
+    --container:1180px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--teal); color:var(--paper-card); }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+    display:flex;
+    align-items:center;
+    gap:0.6em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:18px; height:1px;
+    background:var(--teal-deep);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(241,238,228,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--container);
+    margin:0 auto;
+    padding:16px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .nav-mark{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+  }
+  .nav-mark span{ color:var(--teal); }
+  .nav-links{
+    display:flex;
+    gap:32px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-links a{
+    position:relative;
+    padding-bottom:4px;
+    color:var(--ink-soft);
+    transition:color 0.2s ease;
+  }
+  .nav-links a:hover{ color:var(--ink); }
+  .nav-links a::after{
+    content:"";
+    position:absolute; left:0; bottom:0;
+    width:0; height:1px;
+    background:var(--teal);
+    transition:width 0.25s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-toggle{
+    display:none;
+    background:none; border:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    cursor:pointer;
+    color:var(--ink);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:108px 0 64px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 6vw, 4.6rem);
+    line-height:1.02;
+    margin:14px 0 18px;
+  }
+  .hero .role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:500;
+    color:var(--teal-deep);
+    font-size:clamp(1.1rem, 2vw, 1.45rem);
+    margin-bottom:22px;
+  }
+  .hero p.bio{
+    max-width:640px;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin-bottom:34px;
+  }
+  .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-bottom:64px;
+  }
+  .btn{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:13px 22px;
+    border-radius:var(--radius);
+    border:1px solid var(--ink);
+    transition:all 0.2s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--paper-card);
+  }
+  .btn-primary:hover{ background:var(--teal-deep); border-color:var(--teal-deep); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--ink);
+  }
+  .btn-ghost:hover{ background:var(--ink); color:var(--paper-card); }
+  .btn-disabled{
+    border:1px dashed var(--ink-soft);
+    color:var(--ink-soft);
+    cursor:default;
+  }
+
+  /* logic model strip — signature element */
+  .logic-strip{
+    border-top:1px solid var(--line);
+    padding-top:26px;
+  }
+  .logic-strip .cap{
+    font-size:0.86rem;
+    color:var(--ink-soft);
+    margin-bottom:16px;
+    max-width:520px;
+  }
+  .logic-chain{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+  .logic-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:var(--paper-card);
+    color:var(--ink-soft);
+  }
+  .logic-chip.active{
+    border-color:var(--teal);
+    color:var(--teal-deep);
+  }
+  .logic-arrow{ color:var(--line); font-size:0.9rem; }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding:84px 0; }
+  .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:18px;
+    margin-bottom:44px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    margin-top:10px;
+  }
+  .section-head .deck{
+    max-width:420px;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+
+  /* ---------- FEATURED PROJECTS ---------- */
+  .featured-row{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:22px;
+  }
+  .feat-card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    cursor:pointer;
+    transition:transform 0.25s ease, box-shadow 0.25s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .feat-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px -16px rgba(32,40,33,0.35);
+  }
+  .thumb{
+    aspect-ratio:4/3;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:14px;
+    color:#fff;
+    overflow:hidden;
+  }
+  .thumb::before{
+    content:"";
+    position:absolute; inset:0;
+    opacity:0.92;
+  }
+  .thumb-label{
+    position:relative;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+  .thumb-tag{
+    position:absolute; top:12px; right:12px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.4);
+    padding:3px 9px;
+    border-radius:999px;
+    color:#fff;
+  }
+  .cat-social{ background:linear-gradient(135deg, var(--teal), var(--teal-deep)); }
+  .cat-games{ background:linear-gradient(135deg, #E5A052, var(--amber)); }
+  .cat-baking{ background:linear-gradient(135deg, #C56A4E, var(--rust)); }
+  .cat-misc{ background:linear-gradient(135deg, #6184A6, var(--slate)); }
+
+  .feat-body{ padding:18px 18px 20px; flex:1; display:flex; flex-direction:column; }
+  .feat-body h3{ font-size:1.08rem; margin-bottom:8px; }
+  .feat-body p{ font-size:0.88rem; color:var(--ink-soft); margin:0 0 14px; flex:1; }
+  .feat-link{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--teal-deep);
+  }
+
+  /* ---------- CV / BACKGROUND ---------- */
+  .cv-grid{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:56px;
+  }
+  .cv-grid p.summary{
+    font-size:1.02rem;
+    color:var(--ink-soft);
+    margin-bottom:28px;
+  }
+  .skill-chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+    margin-bottom:36px;
+  }
+  .skill-chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.03em;
+    padding:7px 12px;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-card);
+    color:var(--ink);
+  }
+  .cv-buttons{ display:flex; gap:12px; flex-wrap:wrap; }
+
+  .timeline-box{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-card);
+    padding:26px;
+  }
+  .timeline-box h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+  }
+  .timeline-entry{
+    border-left:2px dashed var(--line);
+    padding:0 0 20px 18px;
+    margin-left:4px;
+    position:relative;
+  }
+  .timeline-entry:last-child{ padding-bottom:0; }
+  .timeline-entry::before{
+    content:"";
+    position:absolute; left:-5px; top:2px;
+    width:8px; height:8px;
+    border-radius:50%;
+    background:var(--paper-card);
+    border:2px solid var(--teal);
+  }
+  .timeline-entry .role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+  }
+  .timeline-note{
+    margin-top:18px;
+    font-size:0.84rem;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  /* ---------- ARCHIVE ---------- */
+  .filter-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:50px;
+  }
+  .pill{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    color:var(--ink-soft);
+    transition:all 0.2s ease;
+  }
+  .pill:hover{ border-color:var(--ink); color:var(--ink); }
+
+  .archive-group{ margin-bottom:62px; scroll-margin-top:90px; }
+  .archive-group:last-child{ margin-bottom:0; }
+  .group-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    border-bottom:1px solid var(--line);
+    padding-bottom:14px;
+    margin-bottom:26px;
+  }
+  .group-head h3{
+    font-size:1.5rem;
+  }
+  .group-count{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    color:var(--ink-soft);
+  }
+
+  .archive-cards{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .arc-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    background:var(--paper-card);
+    padding:22px;
+    transition:border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .arc-card.pulse{
+    border-color:var(--teal);
+    box-shadow:0 0 0 3px rgba(47,111,98,0.15);
+  }
+  .arc-card.empty{
+    border-style:dashed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    min-height:140px;
+  }
+  .arc-tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.66rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+    display:block;
+  }
+  .arc-card h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.12rem;
+    margin-bottom:9px;
+  }
+  .arc-card p{
+    font-size:0.88rem;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .working-title{
+    font-size:0.7rem;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+
+  /* ---------- CONTACT ---------- */
+  footer.contact{
+    background:var(--ink);
+    color:var(--paper);
+    padding:80px 0 36px;
+  }
+  footer.contact .section-head h2{ color:var(--paper); }
+  footer.contact .deck{ color:#A9B0A4; }
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:56px;
+  }
+  .contact-card{
+    flex:1;
+    min-width:220px;
+    border:1px solid #3A453B;
+    border-radius:var(--radius);
+    padding:22px;
+  }
+  .contact-card .eyebrow{ color:#8FB0A4; }
+  .contact-card .eyebrow::before{ background:#8FB0A4; }
+  .contact-card a, .contact-card .val{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+    display:block;
+    margin-top:10px;
+  }
+  .contact-card a:hover{ color:var(--amber); }
+  .foot-bottom{
+    border-top:1px solid #3A453B;
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:#8B927F;
+  }
+
+  /* ---------- REVEAL ---------- */
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .featured-row{ grid-template-columns:repeat(2,1fr); }
+    .archive-cards{ grid-template-columns:repeat(2,1fr); }
+    .cv-grid{ grid-template-columns:1fr; gap:38px; }
+  }
+  @media (max-width:640px){
+    .nav-links{
+      position:fixed; top:64px; left:0; right:0;
+      background:var(--paper);
+      flex-direction:column;
+      padding:20px 28px 28px;
+      border-bottom:1px solid var(--line);
+      display:none;
+      gap:18px;
+    }
+    .nav-links.open{ display:flex; }
+    .nav-toggle{ display:block; }
+    .featured-row{ grid-template-columns:1fr; }
+    .archive-cards{ grid-template-columns:1fr; }
+    .hero{ padding-top:90px; }
+    section{ padding:60px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-mark">Andreas <span>Stocker</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#projects">Projects</a>
+      <a href="#archive">All Work</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle">Menu</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Social &amp; Human Services — Accreditation &amp; Quality</div>
+        <h1>Andreas Stocker</h1>
+        <div class="role">Building better systems for the people who run them — by trade, and lately, with AI.</div>
+        <p class="bio">
+          I work in accreditation and quality improvement for social and human services organizations —
+          reviewing programs against COA standards, building the systems that track progress, and helping
+          teams turn "we should improve this" into an actual, measurable plan. Outside of that, I'm teaching
+          myself to build: games in Godot, browser tools, and small AI-assisted experiments, mostly to see
+          how far curiosity and the right prompts can take someone without a coding background.
+        </p>
+        <div class="cta-row">
+          <a href="#cv" class="btn btn-primary">View CV</a>
+          <a href="#projects" class="btn btn-ghost">See Projects</a>
+          <a href="https://www.linkedin.com/in/andreas-stocker-2b7309105/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="logic-strip">
+        <p class="cap">The same framework shows up everywhere I work — including in a tool I built to run it.</p>
+        <div class="logic-chain">
+          <span class="logic-chip active">Input</span>
+          <span class="logic-arrow">→</span>
+          <span class="logic-chip active">Activity</span>
+          <span class="logic-arrow">→</span>
+          <span class="logic-chip active">Output</span>
+          <span class="logic-arrow">→</span>
+          <span class="logic-chip active">Outcome</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED PROJECTS ===== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Selected Work</div>
+          <h2>A few things I've built</h2>
+        </div>
+        <p class="deck">Click through to the full write-up below. Screenshots are placeholders — real ones are coming.</p>
+      </div>
+
+      <div class="featured-row">
+
+        <a class="feat-card reveal" data-target="card-pqi">
+          <div class="thumb cat-social">
+            <span class="thumb-tag">Social &amp; Human Services</span>
+            <span class="thumb-label">Add screenshot →</span>
+          </div>
+          <div class="feat-body">
+            <h3>PQI Builder</h3>
+            <p>An interactive, step-by-step tool for building PQI Plans, logic models, and program outcomes — with data analysis and visualization built right into the plan.</p>
+            <span class="feat-link">View project ↓</span>
+          </div>
+        </a>
+
+        <a class="feat-card reveal" data-target="card-blobwise">
+          <div class="thumb cat-games">
+            <span class="thumb-tag">Game Development</span>
+            <span class="thumb-label">Add screenshot →</span>
+          </div>
+          <div class="feat-body">
+            <h3>Blobwise</h3>
+            <p>A 2D platformer built in Godot 4 — donut platforms, a coin economy, and enemy spawning in progress, all hand-scripted.</p>
+            <span class="feat-link">View project ↓</span>
+          </div>
+        </a>
+
+        <a class="feat-card reveal" data-target="card-worldcup">
+          <div class="thumb cat-misc">
+            <span class="thumb-tag">Misc</span>
+            <span class="thumb-label">Add screenshot →</span>
+          </div>
+          <div class="feat-body">
+            <h3>World Cup Viewing Guide</h3>
+            <p>A living guide to watching the 2026 World Cup across the East Bay and Brooklyn — live scores, standings, and bracket.</p>
+            <span class="feat-link">View project ↓</span>
+          </div>
+        </a>
+
+        <a class="feat-card reveal" data-target="card-pixelforge">
+          <div class="thumb cat-games">
+            <span class="thumb-tag">Game Development</span>
+            <span class="thumb-label">Add screenshot →</span>
+          </div>
+          <div class="feat-body">
+            <h3>Pixel Forge</h3>
+            <p>A browser tool for cleaning up AI-generated sprites — background removal, slicing, animation preview, and GIF export.</p>
+            <span class="feat-link">View project ↓</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CV / BACKGROUND ===== -->
+  <section id="cv">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Background</div>
+          <h2>What I actually do</h2>
+        </div>
+      </div>
+
+      <div class="cv-grid reveal">
+        <div>
+          <p class="summary">
+            I'm an accreditation and quality professional working across the social and human services
+            sector, with a practical specialty in COA (Council on Accreditation) standards review and the
+            systems used to track and report on it — Salesforce Lightning for accreditation management, and
+            Power BI reporting built on SharePoint data. Most of what I do comes down to one question:
+            does this program actually do what it says it does, and can we prove it?
+          </p>
+
+          <div class="skill-chips">
+            <span class="skill-chip">COA Standards Review</span>
+            <span class="skill-chip">Accreditation Consulting</span>
+            <span class="skill-chip">Salesforce Lightning</span>
+            <span class="skill-chip">Power BI &amp; DAX</span>
+            <span class="skill-chip">PQI Planning</span>
+            <span class="skill-chip">Logic Models &amp; Outcomes</span>
+          </div>
+
+          <div class="cv-buttons">
+            <a href="https://www.linkedin.com/in/andreas-stocker-2b7309105/" target="_blank" rel="noopener" class="btn btn-primary">Connect on LinkedIn</a>
+            <span class="btn btn-disabled">Resume — coming soon</span>
+          </div>
+        </div>
+
+        <div class="timeline-box">
+          <h4>Experience</h4>
+          <div class="timeline-entry">
+            <div class="role">[Role title]</div>
+            <div>[Organization] · [Dates]</div>
+          </div>
+          <div class="timeline-entry">
+            <div class="role">[Role title]</div>
+            <div>[Organization] · [Dates]</div>
+          </div>
+          <div class="timeline-entry">
+            <div class="role">[Role title]</div>
+            <div>[Organization] · [Dates]</div>
+          </div>
+          <p class="timeline-note">Full resume in progress — this section gets filled in next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ALL PROJECTS ARCHIVE ===== -->
+  <section id="archive">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Full Archive</div>
+          <h2>Everything I've built</h2>
+        </div>
+        <p class="deck">Organized by category. Jump straight to one below.</p>
+      </div>
+
+      <div class="filter-pills reveal">
+        <a href="#group-social" class="pill">Social &amp; Human Services</a>
+        <a href="#group-games" class="pill">Game Development</a>
+        <a href="#group-baking" class="pill">Baking</a>
+        <a href="#group-misc" class="pill">Misc</a>
+      </div>
+
+      <!-- SOCIAL & HUMAN SERVICES -->
+      <div class="archive-group reveal" id="group-social">
+        <div class="group-head">
+          <h3>Social &amp; Human Services</h3>
+          <span class="group-count">01 project</span>
+        </div>
+        <div class="archive-cards">
+          <div class="arc-card" id="card-pqi">
+            <span class="arc-tag">Internal Tool · 2026</span>
+            <h4>PQI Builder</h4>
+            <p>An interactive, step-by-step tool for constructing a Performance &amp; Quality Improvement
+              Plan — the logic models behind it and the program outcomes it's meant to produce — with data
+              analysis and visualization tools that flow directly from the plan, instead of being bolted on
+              afterward.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GAME DEVELOPMENT -->
+      <div class="archive-group reveal" id="group-games">
+        <div class="group-head">
+          <h3>Game Development</h3>
+          <span class="group-count">03 projects</span>
+        </div>
+        <div class="archive-cards">
+          <div class="arc-card" id="card-blobwise">
+            <span class="arc-tag">Godot 4 · In Progress</span>
+            <h4>Blobwise</h4>
+            <p>A 2D platformer starring a green blob — donut-themed moving platforms, a transformation
+              mechanic, a coin HUD, and enemy spawning currently in development. Built with a full
+              AI-assisted art pipeline (Aseprite, Gemini, Pixel Forge).</p>
+          </div>
+          <div class="arc-card" id="card-platformer">
+            <span class="arc-tag">Godot 4 · Complete <span class="working-title">(working title)</span></span>
+            <h4>Platformer Project</h4>
+            <p>The project that taught me Godot — question blocks, mushroom power-ups, warp tubes with a
+              rainbow transition effect, a global autoload, HUD, and two connected world scenes with
+              transitions.</p>
+          </div>
+          <div class="arc-card" id="card-pixelforge">
+            <span class="arc-tag">Web Tool · Live</span>
+            <h4>Pixel Forge</h4>
+            <p>A custom browser-based sprite post-processor — background removal, sprite-sheet slicing with
+              auto-spacing, animation preview, and GIF export — built to clean up AI-generated pixel art
+              fast enough to keep up with actual game-building.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- BAKING -->
+      <div class="archive-group reveal" id="group-baking">
+        <div class="group-head">
+          <h3>Baking</h3>
+          <span class="group-count">Coming soon</span>
+        </div>
+        <div class="archive-cards">
+          <div class="arc-card empty">Recipes and kitchen experiments — coming soon.</div>
+        </div>
+      </div>
+
+      <!-- MISC -->
+      <div class="archive-group reveal" id="group-misc">
+        <div class="group-head">
+          <h3>Misc</h3>
+          <span class="group-count">01 project</span>
+        </div>
+        <div class="archive-cards">
+          <div class="arc-card" id="card-worldcup">
+            <span class="arc-tag">Live Site · Netlify</span>
+            <h4>World Cup Viewing Guide</h4>
+            <p>A self-contained, live guide for catching 2026 World Cup matches across the East Bay and
+              Brooklyn — venue listings, live score updates, standings, and a rendered bracket, refreshed
+              on demand.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== CONTACT / FOOTER ===== -->
+<footer class="contact" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Get In Touch</div>
+        <h2>Let's talk</h2>
+      </div>
+      <p class="deck">Based in Oakland, CA — open to accreditation &amp; quality work, and happy to talk shop about building with AI.</p>
+    </div>
+
+    <div class="contact-row reveal">
+      <div class="contact-card">
+        <div class="eyebrow">Email</div>
+        <a href="mailto:hello@andreas-stocker.com">hello@andreas-stocker.com</a>
+      </div>
+      <div class="contact-card">
+        <div class="eyebrow">LinkedIn</div>
+        <a href="https://www.linkedin.com/in/andreas-stocker-2b7309105/" target="_blank" rel="noopener">andreas-stocker-2b7309105 ↗</a>
+      </div>
+      <div class="contact-card">
+        <div class="eyebrow">Location</div>
+        <span class="val">Oakland, California</span>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <span>© 2026 Andreas Stocker</span>
+      <span>Built by hand, with a lot of AI help</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // featured card click -> scroll to archive card + pulse highlight
+  document.querySelectorAll('.feat-card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const id = card.getAttribute('data-target');
+      const target = document.getElementById(id);
+      if(!target) return;
+      target.scrollIntoView({ behavior:'smooth', block:'center' });
+      target.classList.add('pulse');
+      setTimeout(() => target.classList.remove('pulse'), 1600);
+    });
+  });
+
+  // reveal-on-scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.12 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
