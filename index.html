@@ -298,6 +298,14 @@
     border-radius:999px;
     color:#fff;
   }
+  .thumb-media{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    transition:transform 0.35s ease;
+  }
+  .feat-card:hover .thumb-media{ transform:scale(1.05); }
+  .thumb.has-media::before{ background:linear-gradient(180deg, rgba(20,24,20,0) 45%, rgba(20,24,20,0.72) 100%); }
   .cat-social{ background:linear-gradient(135deg, var(--teal), var(--teal-deep)); }
   .cat-games{ background:linear-gradient(135deg, #E5A052, var(--amber)); }
   .cat-baking{ background:linear-gradient(135deg, #C56A4E, var(--rust)); }
@@ -476,6 +484,39 @@
     font-style:italic;
   }
 
+  .arc-media, .arc-gallery{
+    margin:-22px -22px 16px -22px;
+    border-radius:var(--radius) var(--radius) 0 0;
+    overflow:hidden;
+  }
+  .arc-media img, .arc-media video{
+    display:block;
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    transition:transform 0.35s ease;
+  }
+  .arc-card:hover .arc-media img,
+  .arc-card:hover .arc-media video{
+    transform:scale(1.03);
+  }
+  .arc-gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:3px;
+  }
+  .arc-gallery.cols-2{ grid-template-columns:repeat(2, 1fr); }
+  .arc-gallery img, .arc-gallery video{
+    display:block;
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    transition:transform 0.35s ease;
+  }
+  .arc-gallery img:hover, .arc-gallery video:hover{
+    transform:scale(1.06);
+  }
+
   /* ---------- CONTACT ---------- */
   footer.contact{
     background:var(--ink);
@@ -608,15 +649,15 @@
           <div class="eyebrow">Selected Work</div>
           <h2>A few things I've built</h2>
         </div>
-        <p class="deck">Click through to the full write-up below. Screenshots are placeholders — real ones are coming.</p>
+        <p class="deck">Click through to the full write-up below.</p>
       </div>
 
       <div class="featured-row">
 
         <a class="feat-card reveal" data-target="card-pqi">
-          <div class="thumb cat-social">
+          <div class="thumb cat-social has-media">
+            <img class="thumb-media" src="images/PQI%20Builder_1.png" alt="PQI Builder screenshot">
             <span class="thumb-tag">Social &amp; Human Services</span>
-            <span class="thumb-label">Add screenshot →</span>
           </div>
           <div class="feat-body">
             <h3>PQI Builder</h3>
@@ -626,9 +667,9 @@
         </a>
 
         <a class="feat-card reveal" data-target="card-blobwise">
-          <div class="thumb cat-games">
+          <div class="thumb cat-games has-media">
+            <video class="thumb-media" src="images/Blobwise_Recording.mp4" autoplay muted loop playsinline></video>
             <span class="thumb-tag">Game Development</span>
-            <span class="thumb-label">Add screenshot →</span>
           </div>
           <div class="feat-body">
             <h3>Blobwise</h3>
@@ -638,9 +679,9 @@
         </a>
 
         <a class="feat-card reveal" data-target="card-worldcup">
-          <div class="thumb cat-misc">
+          <div class="thumb cat-misc has-media">
+            <img class="thumb-media" src="images/WorldCup%20Page_1.png" alt="World Cup Viewing Guide screenshot">
             <span class="thumb-tag">Misc</span>
-            <span class="thumb-label">Add screenshot →</span>
           </div>
           <div class="feat-body">
             <h3>World Cup Viewing Guide</h3>
@@ -650,9 +691,9 @@
         </a>
 
         <a class="feat-card reveal" data-target="card-pixelforge">
-          <div class="thumb cat-games">
+          <div class="thumb cat-games has-media">
+            <img class="thumb-media" src="images/PixelForge_1.png" alt="Pixel Forge screenshot">
             <span class="thumb-tag">Game Development</span>
-            <span class="thumb-label">Add screenshot →</span>
           </div>
           <div class="feat-body">
             <h3>Pixel Forge</h3>
@@ -746,6 +787,12 @@
         </div>
         <div class="archive-cards">
           <div class="arc-card" id="card-pqi">
+            <div class="arc-gallery cols-2">
+              <img src="images/PQI%20Builder_1.png" alt="PQI Builder screenshot 1">
+              <img src="images/PQI%20Builder_2.png" alt="PQI Builder screenshot 2">
+              <img src="images/PQI%20Builder_3.png" alt="PQI Builder screenshot 3">
+              <img src="images/PQI%20Builder_4.png" alt="PQI Builder screenshot 4">
+            </div>
             <span class="arc-tag">Internal Tool · 2026</span>
             <h4>PQI Builder</h4>
             <p>An interactive, step-by-step tool for constructing a Performance &amp; Quality Improvement
@@ -760,10 +807,13 @@
       <div class="archive-group reveal" id="group-games">
         <div class="group-head">
           <h3>Game Development</h3>
-          <span class="group-count">03 projects</span>
+          <span class="group-count">04 projects</span>
         </div>
         <div class="archive-cards">
           <div class="arc-card" id="card-blobwise">
+            <div class="arc-media">
+              <video src="images/Blobwise_Recording.mp4" autoplay muted loop playsinline></video>
+            </div>
             <span class="arc-tag">Godot 4 · In Progress</span>
             <h4>Blobwise</h4>
             <p>A 2D platformer starring a green blob — donut-themed moving platforms, a transformation
@@ -778,11 +828,24 @@
               transitions.</p>
           </div>
           <div class="arc-card" id="card-pixelforge">
+            <div class="arc-gallery cols-3">
+              <img src="images/PixelForge_1.png" alt="Pixel Forge screenshot 1">
+              <img src="images/PixelForge_2.png" alt="Pixel Forge screenshot 2">
+              <img src="images/PixelForge_3.png" alt="Pixel Forge screenshot 3">
+            </div>
             <span class="arc-tag">Web Tool · Live</span>
             <h4>Pixel Forge</h4>
             <p>A custom browser-based sprite post-processor — background removal, sprite-sheet slicing with
               auto-spacing, animation preview, and GIF export — built to clean up AI-generated pixel art
               fast enough to keep up with actual game-building.</p>
+          </div>
+          <div class="arc-card" id="card-livbot">
+            <div class="arc-media">
+              <video src="images/Livbot_Recording.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <span class="arc-tag">Game Dev · In Progress</span>
+            <h4>Livbot</h4>
+            <p>Details coming soon.</p>
           </div>
         </div>
       </div>
@@ -802,15 +865,27 @@
       <div class="archive-group reveal" id="group-misc">
         <div class="group-head">
           <h3>Misc</h3>
-          <span class="group-count">01 project</span>
+          <span class="group-count">02 projects</span>
         </div>
         <div class="archive-cards">
           <div class="arc-card" id="card-worldcup">
+            <div class="arc-gallery cols-2">
+              <img src="images/WorldCup%20Page_1.png" alt="World Cup Viewing Guide screenshot 1">
+              <img src="images/WorldCup%20Page_2.png" alt="World Cup Viewing Guide screenshot 2">
+            </div>
             <span class="arc-tag">Live Site · Netlify</span>
             <h4>World Cup Viewing Guide</h4>
             <p>A self-contained, live guide for catching 2026 World Cup matches across the East Bay and
               Brooklyn — venue listings, live score updates, standings, and a rendered bracket, refreshed
               on demand.</p>
+          </div>
+          <div class="arc-card" id="card-dayquest">
+            <div class="arc-media">
+              <video src="images/DayQuest_Recording1.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <span class="arc-tag">In Progress</span>
+            <h4>DayQuest</h4>
+            <p>Details coming soon.</p>
           </div>
         </div>
       </div>
