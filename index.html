@@ -231,10 +231,10 @@
     text-align:center;
     outline:none;
   }
-  .node-dir-top{ top:0; left:50%; transform:translate(-50%,-46%); }
-  .node-dir-right{ top:50%; right:2%; transform:translate(0,-50%); }
-  .node-dir-bottom{ bottom:0; left:50%; transform:translate(-50%,46%); }
-  .node-dir-left{ top:50%; left:2%; transform:translate(0,-50%); }
+  .node-dir-top{ top:18.7%; left:50%; transform:translate(-50%,-50%); }
+  .node-dir-right{ top:50%; left:84%; transform:translate(-50%,-50%); }
+  .node-dir-bottom{ top:86.7%; left:50%; transform:translate(-50%,-50%); }
+  .node-dir-left{ top:50%; left:16%; transform:translate(-50%,-50%); }
 
   .node-planet{ position:relative; }
   .node-planet svg{ display:block; }
@@ -266,18 +266,25 @@
 
   .node-preview{
     position:absolute;
-    width:230px;
+    width:340px;
     background:var(--panel);
     border:1px solid var(--line);
-    border-radius:12px;
-    padding:16px;
-    box-shadow:0 20px 40px -20px rgba(0,0,0,0.6);
+    border-radius:16px;
+    padding:24px;
+    box-shadow:0 24px 56px -18px rgba(0,0,0,0.75);
     opacity:0;
     transform:scale(0.9);
     transition:opacity 0.22s ease, transform 0.22s ease;
     pointer-events:none;
     z-index:20;
     text-align:left;
+  }
+  .preview-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--star);
+    margin:0 0 12px;
   }
   .node:hover .node-preview,
   .node:focus .node-preview,
@@ -295,29 +302,30 @@
   .node-dir-left:hover .node-preview, .node-dir-left:focus .node-preview{ transform:translateY(-50%) scale(1); }
 
   .preview-text{
-    font-size:0.85rem;
+    font-size:1rem;
+    line-height:1.6;
     color:var(--text-soft);
     margin:0;
     font-style:italic;
   }
-  .preview-thumbs{ display:grid; grid-template-columns:repeat(3,1fr); gap:5px; }
-  .preview-thumbs img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:6px; }
-  .preview-chips{ display:flex; flex-wrap:wrap; gap:6px; }
+  .preview-thumbs{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+  .preview-thumbs img{ width:100%; aspect-ratio:1; object-fit:cover; border-radius:8px; }
+  .preview-chips{ display:flex; flex-wrap:wrap; gap:8px; }
   .preview-chip{
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.62rem;
-    padding:5px 9px;
+    font-size:0.78rem;
+    padding:8px 13px;
     border:1px solid var(--line);
     border-radius:999px;
     color:var(--text-soft);
   }
-  .preview-icons{ display:flex; gap:10px; }
+  .preview-icons{ display:flex; gap:14px; align-items:center; }
   .preview-icon{
-    width:34px; height:34px;
+    width:44px; height:44px;
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     font-family:'IBM Plex Mono', monospace;
-    font-size:0.62rem;
+    font-size:0.78rem;
     font-weight:500;
     color:var(--void-deep);
   }
@@ -765,8 +773,8 @@
 
       <div class="wheel" role="navigation" aria-label="Section navigation">
         <svg class="orbit-rings" viewBox="0 0 560 560" aria-hidden="true">
-          <circle cx="280" cy="280" r="255" />
-          <circle cx="280" cy="280" r="150" />
+          <circle cx="280" cy="280" r="190" />
+          <circle cx="280" cy="280" r="250" opacity="0.4" />
         </svg>
 
         <div class="planet-center" aria-hidden="true">
@@ -794,20 +802,32 @@
         <!-- BIO NODE -->
         <a href="#bio" class="node node-dir-top">
           <div class="node-planet">
-            <svg width="52" height="52" viewBox="0 0 52 52">
+            <svg width="64" height="64" viewBox="0 0 64 64">
               <defs>
                 <radialGradient id="planetBio" cx="35%" cy="30%" r="75%">
                   <stop offset="0%" stop-color="#C9F3EA"/>
                   <stop offset="55%" stop-color="#5FD9C9"/>
                   <stop offset="100%" stop-color="#1F4E45"/>
                 </radialGradient>
+                <clipPath id="clipBio"><circle cx="32" cy="32" r="25"/></clipPath>
               </defs>
-              <circle cx="26" cy="26" r="22" fill="url(#planetBio)"/>
+              <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(95,217,201,0.25)" stroke-width="1.5"/>
+              <circle cx="32" cy="32" r="25" fill="url(#planetBio)"/>
+              <g clip-path="url(#clipBio)">
+                <ellipse cx="22" cy="24" rx="10" ry="6" fill="rgba(31,78,69,0.5)" transform="rotate(-18 22 24)"/>
+                <ellipse cx="41" cy="38" rx="12" ry="7" fill="rgba(31,78,69,0.42)" transform="rotate(12 41 38)"/>
+                <ellipse cx="30" cy="48" rx="7" ry="4" fill="rgba(31,78,69,0.35)"/>
+                <ellipse cx="44" cy="18" rx="6" ry="3.5" fill="rgba(255,255,255,0.22)" transform="rotate(-14 44 18)"/>
+                <ellipse cx="18" cy="40" rx="7" ry="3" fill="rgba(255,255,255,0.14)" transform="rotate(10 18 40)"/>
+                <circle cx="42" cy="44" r="25" fill="rgba(5,6,17,0.32)" transform="translate(14 12)"/>
+              </g>
+              <circle cx="23" cy="21" r="7" fill="rgba(255,255,255,0.18)"/>
             </svg>
             <div class="moon-orbit" style="animation-duration:8s;"><span class="moon"></span></div>
           </div>
           <span class="node-label">Bio</span>
           <div class="node-preview">
+            <p class="preview-title">Who I am</p>
             <p class="preview-text">"I work in accreditation and quality improvement for social and human services organizations — turning 'we should improve this' into an actual, measurable plan."</p>
           </div>
         </a>
@@ -815,22 +835,34 @@
         <!-- PROJECTS NODE -->
         <a href="#projects" class="node node-dir-right">
           <div class="node-planet">
-            <svg width="66" height="66" viewBox="0 0 66 66">
+            <svg width="82" height="82" viewBox="0 0 82 82">
               <defs>
                 <radialGradient id="planetProjects" cx="35%" cy="30%" r="75%">
                   <stop offset="0%" stop-color="#FCE3C3"/>
                   <stop offset="55%" stop-color="#F0A868"/>
                   <stop offset="100%" stop-color="#8A5323"/>
                 </radialGradient>
+                <clipPath id="clipProjects"><circle cx="41" cy="41" r="30"/></clipPath>
               </defs>
-              <circle cx="33" cy="33" r="28" fill="url(#planetProjects)"/>
-              <circle cx="24" cy="24" r="5" fill="rgba(255,255,255,0.18)"/>
+              <ellipse cx="41" cy="43" rx="39" ry="10" fill="none" stroke="rgba(240,168,104,0.35)" stroke-width="3" transform="rotate(-16 41 43)"/>
+              <circle cx="41" cy="41" r="30" fill="url(#planetProjects)"/>
+              <g clip-path="url(#clipProjects)">
+                <rect x="8" y="26" width="66" height="4.5" fill="rgba(138,83,35,0.45)" transform="rotate(-4 41 41)"/>
+                <rect x="8" y="36" width="66" height="6" fill="rgba(252,227,195,0.28)" transform="rotate(-4 41 41)"/>
+                <rect x="8" y="47" width="66" height="5" fill="rgba(138,83,35,0.4)" transform="rotate(-4 41 41)"/>
+                <rect x="8" y="57" width="66" height="4" fill="rgba(138,83,35,0.28)" transform="rotate(-4 41 41)"/>
+                <ellipse cx="52" cy="33" rx="6.5" ry="4" fill="rgba(197,106,58,0.65)" transform="rotate(-8 52 33)"/>
+                <circle cx="52" cy="53" r="30" fill="rgba(5,6,17,0.3)" transform="translate(16 12)"/>
+              </g>
+              <ellipse cx="41" cy="43" rx="39" ry="10" fill="none" stroke="rgba(252,227,195,0.5)" stroke-width="1.5" stroke-dasharray="0 39 61 100" transform="rotate(-16 41 43)"/>
+              <circle cx="29" cy="27" r="8" fill="rgba(255,255,255,0.16)"/>
             </svg>
             <div class="moon-orbit" style="animation-duration:6s;"><span class="moon"></span></div>
             <div class="moon-orbit" style="animation-duration:11s; animation-direction:reverse;"><span class="moon" style="width:3px;height:3px;"></span></div>
           </div>
           <span class="node-label">Projects</span>
           <div class="node-preview">
+            <p class="preview-title">A few things I've built</p>
             <div class="preview-thumbs">
               <img src="images/PQI%20Builder_1.png" alt="PQI Builder">
               <img src="images/WorldCup%20Page_1.png" alt="World Cup Guide">
@@ -842,21 +874,32 @@
         <!-- CV NODE -->
         <a href="#cv" class="node node-dir-bottom">
           <div class="node-planet">
-            <svg width="58" height="58" viewBox="0 0 58 58">
+            <svg width="74" height="74" viewBox="0 0 74 74">
               <defs>
                 <radialGradient id="planetCV" cx="35%" cy="30%" r="75%">
                   <stop offset="0%" stop-color="#E6DEFC"/>
                   <stop offset="55%" stop-color="#A78BFA"/>
                   <stop offset="100%" stop-color="#4B3B8C"/>
                 </radialGradient>
+                <clipPath id="clipCV"><circle cx="37" cy="37" r="22"/></clipPath>
               </defs>
-              <ellipse cx="29" cy="29" rx="26" ry="7" fill="none" stroke="rgba(167,139,250,0.5)" stroke-width="2"/>
-              <circle cx="29" cy="29" r="18" fill="url(#planetCV)"/>
+              <path d="M 4 41 A 34 9.5 0 0 0 70 33" fill="none" stroke="rgba(167,139,250,0.55)" stroke-width="3.5" transform="rotate(-10 37 37)"/>
+              <path d="M 4 41 A 34 9.5 0 0 0 70 33" fill="none" stroke="rgba(230,222,252,0.35)" stroke-width="1.2" transform="rotate(-10 37 37) translate(0 3.5)"/>
+              <circle cx="37" cy="37" r="22" fill="url(#planetCV)"/>
+              <g clip-path="url(#clipCV)">
+                <ellipse cx="28" cy="30" rx="9" ry="4" fill="rgba(75,59,140,0.5)" transform="rotate(-12 28 30)"/>
+                <ellipse cx="45" cy="42" rx="10" ry="4.5" fill="rgba(75,59,140,0.42)" transform="rotate(8 45 42)"/>
+                <ellipse cx="34" cy="50" rx="7" ry="3" fill="rgba(230,222,252,0.2)"/>
+                <circle cx="46" cy="46" r="22" fill="rgba(5,6,17,0.32)" transform="translate(12 10)"/>
+              </g>
+              <path d="M 70 33 A 34 9.5 0 0 0 4 41" fill="none" stroke="rgba(167,139,250,0.85)" stroke-width="3.5" transform="rotate(-10 37 37)"/>
+              <circle cx="29" cy="28" r="6" fill="rgba(255,255,255,0.2)"/>
             </svg>
             <div class="moon-orbit" style="animation-duration:9s;"><span class="moon"></span></div>
           </div>
           <span class="node-label">CV</span>
           <div class="node-preview">
+            <p class="preview-title">What I work with</p>
             <div class="preview-chips">
               <span class="preview-chip">COA Standards Review</span>
               <span class="preview-chip">Salesforce Lightning</span>
@@ -869,21 +912,34 @@
         <!-- LINKS NODE -->
         <a href="#links" class="node node-dir-left">
           <div class="node-planet">
-            <svg width="46" height="46" viewBox="0 0 46 46">
+            <svg width="60" height="60" viewBox="0 0 60 60">
               <defs>
                 <radialGradient id="planetLinks" cx="35%" cy="30%" r="75%">
                   <stop offset="0%" stop-color="#FBDAE1"/>
                   <stop offset="55%" stop-color="#F090A4"/>
                   <stop offset="100%" stop-color="#8C3D50"/>
                 </radialGradient>
+                <clipPath id="clipLinks"><circle cx="30" cy="30" r="23"/></clipPath>
               </defs>
-              <circle cx="23" cy="23" r="19" fill="url(#planetLinks)"/>
+              <circle cx="30" cy="30" r="26" fill="none" stroke="rgba(240,144,164,0.22)" stroke-width="1.5"/>
+              <circle cx="30" cy="30" r="23" fill="url(#planetLinks)"/>
+              <g clip-path="url(#clipLinks)">
+                <circle cx="22" cy="24" r="5" fill="rgba(140,61,80,0.5)"/>
+                <circle cx="24" cy="26" r="2" fill="rgba(251,218,225,0.3)"/>
+                <circle cx="38" cy="36" r="6.5" fill="rgba(140,61,80,0.45)"/>
+                <circle cx="40" cy="38" r="2.5" fill="rgba(251,218,225,0.25)"/>
+                <circle cx="30" cy="46" r="3.5" fill="rgba(140,61,80,0.4)"/>
+                <circle cx="42" cy="20" r="3" fill="rgba(140,61,80,0.38)"/>
+                <circle cx="40" cy="40" r="23" fill="rgba(5,6,17,0.3)" transform="translate(12 10)"/>
+              </g>
+              <circle cx="22" cy="20" r="6" fill="rgba(255,255,255,0.18)"/>
             </svg>
             <div class="moon-orbit" style="animation-duration:5s;"><span class="moon"></span></div>
             <div class="moon-orbit" style="animation-duration:8.5s; animation-direction:reverse;"><span class="moon" style="width:3px;height:3px;"></span></div>
           </div>
           <span class="node-label">Links</span>
           <div class="node-preview">
+            <p class="preview-title">Where to find me</p>
             <div class="preview-icons">
               <span class="preview-icon" style="background:#5FD9C9;">in</span>
               <span class="preview-icon" style="background:#F0A868;">DQ</span>
